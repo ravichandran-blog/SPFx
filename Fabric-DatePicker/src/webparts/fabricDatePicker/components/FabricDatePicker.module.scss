@@ -1,0 +1,30 @@
+@import '~@microsoft/sp-office-ui-fabric-core/dist/sass/SPFabricCore.scss';
+
+.fabricDatePicker {
+    .container {
+        max-width: 400px;
+        margin: 0px auto;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+      }
+
+      .row {
+        @include ms-Grid-row;
+        @include ms-fontColor-white;
+        padding: 50px;
+      }
+
+      .button
+      {
+        padding:  15px 0px 0px 0px;
+        margin: 15px 0px 0px 0px;
+        float: right;
+      }
+      .label
+      {
+        padding:  15px 0px 0px 0px;
+        margin: 15px 0px 0px 0px;
+        float: left;
+        color: green;
+        font-weight: bold;
+      }
+}

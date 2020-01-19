@@ -1,0 +1,18 @@
+{
+  "$schema": "https://dev.office.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "fabric-date-picker-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/fabricDatePicker/FabricDatePickerWebPart.js",
+          "manifest": "./src/webparts/fabricDatePicker/FabricDatePickerWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "FabricDatePickerWebPartStrings": "lib/webparts/fabricDatePicker/loc/{locale}.js"
+  }
+}

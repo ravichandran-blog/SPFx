@@ -1,0 +1,13 @@
+{
+  "$schema": "https://dev.office.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "fabric-date-picker-client-side-solution",
+    "id": "4f17f55c-5f3c-47f3-a7ac-c42c3197646a",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true
+  },
+  "paths": {
+    "zippedPackage": "solution/fabric-date-picker.sppkg"
+  }
+}
