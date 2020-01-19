@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+    <CustomAction
+        Title="FabricCallout"
+        RegistrationId="100"
+        RegistrationType="List"
+        Location="ClientSideExtension.ListViewCommandSet.CommandBar"
+        ClientSideComponentId="596cd2c4-26c8-4e44-b7fc-f868669b8454"
+        ClientSideComponentProperties="">
+    </CustomAction>
+</Elements>

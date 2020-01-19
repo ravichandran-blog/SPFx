@@ -1,0 +1,28 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "fabric-callout-client-side-solution",
+    "id": "821b7fb1-4777-4e2d-8dc1-833b4cf9b9a4",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "features": [
+      {
+        "title": "Application Extension - Deployment of custom action.",
+        "description": "Deploys a custom action with ClientSideComponentId association",
+        "id": "6e2ff4af-50e8-494c-8702-c1459c6e91b0",
+        "version": "1.0.0.0",
+        "assets": {
+          "elementManifests": [
+            "elements.xml",
+            "clientsideinstance.xml"
+          ]
+        }
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/fabric-callout.sppkg"
+  }
+}
