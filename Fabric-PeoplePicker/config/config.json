@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "fabric-people-picker-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/fabricPeoplePicker/FabricPeoplePickerWebPart.js",
+          "manifest": "./src/webparts/fabricPeoplePicker/FabricPeoplePickerWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "FabricPeoplePickerWebPartStrings": "lib/webparts/fabricPeoplePicker/loc/{locale}.js"
+  }
+}

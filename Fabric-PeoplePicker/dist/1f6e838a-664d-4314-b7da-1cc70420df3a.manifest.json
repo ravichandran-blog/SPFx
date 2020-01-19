@@ -1,0 +1,77 @@
+{
+  "id": "1f6e838a-664d-4314-b7da-1cc70420df3a",
+  "alias": "FabricPeoplePickerWebPart",
+  "componentType": "WebPart",
+  "version": "0.0.1",
+  "manifestVersion": 2,
+  "requiresCustomScript": false,
+  "supportedHosts": [
+    "SharePointWebPart"
+  ],
+  "preconfiguredEntries": [
+    {
+      "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
+      "group": {
+        "default": "Other"
+      },
+      "title": {
+        "default": "Fabric-PeoplePicker"
+      },
+      "description": {
+        "default": "Fabric-PeoplePicker description"
+      },
+      "officeFabricIconFontName": "Page",
+      "properties": {
+        "description": "Fabric-PeoplePicker"
+      }
+    }
+  ],
+  "loaderConfig": {
+    "entryModuleId": "fabric-people-picker-web-part",
+    "internalModuleBaseUrls": [
+      "https://localhost:4321/"
+    ],
+    "scriptResources": {
+      "fabric-people-picker-web-part": {
+        "type": "path",
+        "path": "dist/fabric-people-picker-web-part.js"
+      },
+      "FabricPeoplePickerWebPartStrings": {
+        "defaultPath": "lib/webparts/fabricPeoplePicker/loc/en-us.js",
+        "type": "localizedPath"
+      },
+      "react": {
+        "type": "component",
+        "version": "16.7.0",
+        "id": "0d910c1c-13b9-4e1c-9aa4-b008c5e42d7d",
+        "failoverPath": "node_modules/react/dist/react.js"
+      },
+      "react-dom": {
+        "type": "component",
+        "version": "16.7.0",
+        "id": "aa0a46ec-1505-43cd-a44a-93f3a5aa460a",
+        "failoverPath": "node_modules/react-dom/dist/react-dom.js"
+      },
+      "@microsoft/sp-core-library": {
+        "type": "component",
+        "version": "1.8.2",
+        "id": "7263c7d0-1d6a-45ec-8d85-d4d1d234171b"
+      },
+      "@microsoft/sp-webpart-base": {
+        "type": "component",
+        "version": "1.8.2",
+        "id": "974a7777-0990-4136-8fa6-95d80114c2e0"
+      },
+      "@microsoft/sp-property-pane": {
+        "type": "component",
+        "version": "1.8.2",
+        "id": "f9e737b7-f0df-4597-ba8c-3060f82380db"
+      },
+      "@microsoft/sp-http": {
+        "type": "component",
+        "version": "1.8.2",
+        "id": "c07208f0-ea3b-4c1a-9965-ac1b825211a6"
+      }
+    }
+  }
+}
