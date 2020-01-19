@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "mega-menu-sp-fx-application-customizer": {
+      "components": [
+        {
+          "entrypoint": "./lib/extensions/megaMenuSpFx/MegaMenuSpFxApplicationCustomizer.js",
+          "manifest": "./src/extensions/megaMenuSpFx/MegaMenuSpFxApplicationCustomizer.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "MegaMenuSpFxApplicationCustomizerStrings": "lib/extensions/megaMenuSpFx/loc/{locale}.js"
+  }
+}

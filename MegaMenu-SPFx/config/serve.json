@@ -1,0 +1,33 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/core-build/serve.schema.json",
+  "port": 4321,
+  "https": true,
+  "serveConfigurations": {
+    "default": {
+      "pageUrl": "https://ravichandran.sharepoint.com/SitePages/Fabric-React-DatePicker-in-SPFx.aspx",
+      "customActions": {
+        "3e5852d3-2ac8-403e-b21b-4b7e4c0620c2": {
+          "location": "ClientSideExtension.ApplicationCustomizer",
+          "properties": {
+            "testMessage": "Test message",
+            "Top":"Top area",
+            "Bottom":"Bottom area"
+          }
+        }
+      }
+    },
+    "megaMenuSpFx": {
+      "pageUrl": "https://ravichandran.sharepoint.com/SitePages/Fabric-React-DatePicker-in-SPFx.aspx",
+      "customActions": {
+        "3e5852d3-2ac8-403e-b21b-4b7e4c0620c2": {
+          "location": "ClientSideExtension.ApplicationCustomizer",
+          "properties": {
+            "testMessage": "Test message",
+            "Top":"Top area",
+            "Bottom":"Bottom area"
+          }
+        }
+      }
+    }
+  }
+}
