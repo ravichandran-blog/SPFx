@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "simple-list-operations-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/simpleListOperations/SimpleListOperationsWebPart.js",
+          "manifest": "./src/webparts/simpleListOperations/SimpleListOperationsWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "SimpleListOperationsWebPartStrings": "lib/webparts/simpleListOperations/loc/{locale}.js"
+  }
+}

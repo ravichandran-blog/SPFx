@@ -1,0 +1,21 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "ebfcbd87-9ea2-42e4-bf23-c4d7f28bd62e",
+  "alias": "SimpleListOperationsWebPart",
+  "componentType": "WebPart",
+  "version": "*",
+  "manifestVersion": 2,
+  "requiresCustomScript": false,
+  "supportedHosts": ["SharePointWebPart"],
+
+  "preconfiguredEntries": [{
+    "groupId": "5c03119e-3074-46fd-976b-c60198311f70", 
+    "group": { "default": "Other" },
+    "title": { "default": "Simple List Operations" },
+    "description": { "default": "simple list operations in spfx using pnpjs" },
+    "officeFabricIconFontName": "Page",
+    "properties": {
+      "description": "Simple_List_Operations"
+    }
+  }]
+}
