@@ -1,0 +1,19 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "spfx-pnp-carousel-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/spfxPnpCarousel/SpfxPnpCarouselWebPart.js",
+          "manifest": "./src/webparts/spfxPnpCarousel/SpfxPnpCarouselWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "SpfxPnpCarouselWebPartStrings": "lib/webparts/spfxPnpCarousel/loc/{locale}.js",
+    "ControlStrings": "node_modules/@pnp/spfx-controls-react/lib/loc/{locale}.js"
+  }
+}
