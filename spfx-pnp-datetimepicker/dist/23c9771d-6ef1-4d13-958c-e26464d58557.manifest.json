@@ -1,0 +1,188 @@
+{
+  "id": "23c9771d-6ef1-4d13-958c-e26464d58557",
+  "alias": "SpfxPnpDatetimepickerWebPart",
+  "componentType": "WebPart",
+  "version": "0.0.1",
+  "manifestVersion": 2,
+  "requiresCustomScript": false,
+  "supportedHosts": [
+    "SharePointWebPart"
+  ],
+  "preconfiguredEntries": [
+    {
+      "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
+      "group": {
+        "default": "Other"
+      },
+      "title": {
+        "default": "spfx-pnp-datetimepicker"
+      },
+      "description": {
+        "default": "spfx-pnp-datetimepicker description"
+      },
+      "officeFabricIconFontName": "Page",
+      "properties": {
+        "description": "spfx-pnp-datetimepicker"
+      }
+    }
+  ],
+  "loaderConfig": {
+    "entryModuleId": "spfx-pnp-datetimepicker-web-part",
+    "internalModuleBaseUrls": [
+      "https://localhost:4321/"
+    ],
+    "scriptResources": {
+      "spfx-pnp-datetimepicker-web-part": {
+        "type": "path",
+        "path": "dist/spfx-pnp-datetimepicker-web-part.js"
+      },
+      "SpfxPnpDatetimepickerWebPartStrings": {
+        "defaultPath": "lib/webparts/spfxPnpDatetimepicker/loc/en-us.js",
+        "type": "localizedPath",
+        "paths": {}
+      },
+      "ControlStrings": {
+        "defaultPath": "node_modules/@pnp/spfx-controls-react/lib/loc/en-us.js",
+        "type": "localizedPath",
+        "paths": {
+          "bg-BG": "node_modules/@pnp/spfx-controls-react/lib/loc/bg-bg.js",
+          "ca-ES": "node_modules/@pnp/spfx-controls-react/lib/loc/ca-es.js",
+          "da-DK": "node_modules/@pnp/spfx-controls-react/lib/loc/da-dk.js",
+          "fo": "node_modules/@pnp/spfx-controls-react/lib/loc/da-dk.js",
+          "kl": "node_modules/@pnp/spfx-controls-react/lib/loc/da-dk.js",
+          "de-DE": "node_modules/@pnp/spfx-controls-react/lib/loc/de-de.js",
+          "de": "node_modules/@pnp/spfx-controls-react/lib/loc/de-de.js",
+          "dsb": "node_modules/@pnp/spfx-controls-react/lib/loc/de-de.js",
+          "rm": "node_modules/@pnp/spfx-controls-react/lib/loc/de-de.js",
+          "hsb": "node_modules/@pnp/spfx-controls-react/lib/loc/de-de.js",
+          "el-GR": "node_modules/@pnp/spfx-controls-react/lib/loc/el-gr.js",
+          "el": "node_modules/@pnp/spfx-controls-react/lib/loc/el-gr.js",
+          "en-US": "node_modules/@pnp/spfx-controls-react/lib/loc/en-us.js",
+          "bn": "node_modules/@pnp/spfx-controls-react/lib/loc/en-us.js",
+          "chr": "node_modules/@pnp/spfx-controls-react/lib/loc/en-us.js",
+          "dv": "node_modules/@pnp/spfx-controls-react/lib/loc/en-us.js",
+          "div": "node_modules/@pnp/spfx-controls-react/lib/loc/en-us.js",
+          "en": "node_modules/@pnp/spfx-controls-react/lib/loc/en-us.js",
+          "fil": "node_modules/@pnp/spfx-controls-react/lib/loc/en-us.js",
+          "haw": "node_modules/@pnp/spfx-controls-react/lib/loc/en-us.js",
+          "iu": "node_modules/@pnp/spfx-controls-react/lib/loc/en-us.js",
+          "lo": "node_modules/@pnp/spfx-controls-react/lib/loc/en-us.js",
+          "moh": "node_modules/@pnp/spfx-controls-react/lib/loc/en-us.js",
+          "es-ES": "node_modules/@pnp/spfx-controls-react/lib/loc/es-es.js",
+          "gn": "node_modules/@pnp/spfx-controls-react/lib/loc/es-es.js",
+          "quz": "node_modules/@pnp/spfx-controls-react/lib/loc/es-es.js",
+          "es": "node_modules/@pnp/spfx-controls-react/lib/loc/es-es.js",
+          "ca-ES-valencia": "node_modules/@pnp/spfx-controls-react/lib/loc/es-es.js",
+          "et-EE": "node_modules/@pnp/spfx-controls-react/lib/loc/et-ee.js",
+          "eu-ES": "node_modules/@pnp/spfx-controls-react/lib/loc/eu-es.js",
+          "fi-FI": "node_modules/@pnp/spfx-controls-react/lib/loc/fi-fi.js",
+          "sms": "node_modules/@pnp/spfx-controls-react/lib/loc/fi-fi.js",
+          "se-FI": "node_modules/@pnp/spfx-controls-react/lib/loc/fi-fi.js",
+          "se-Latn-FI": "node_modules/@pnp/spfx-controls-react/lib/loc/fi-fi.js",
+          "fr-FR": "node_modules/@pnp/spfx-controls-react/lib/loc/fr-fr.js",
+          "gsw": "node_modules/@pnp/spfx-controls-react/lib/loc/fr-fr.js",
+          "br": "node_modules/@pnp/spfx-controls-react/lib/loc/fr-fr.js",
+          "tzm-Tfng": "node_modules/@pnp/spfx-controls-react/lib/loc/fr-fr.js",
+          "co": "node_modules/@pnp/spfx-controls-react/lib/loc/fr-fr.js",
+          "fr": "node_modules/@pnp/spfx-controls-react/lib/loc/fr-fr.js",
+          "ff": "node_modules/@pnp/spfx-controls-react/lib/loc/fr-fr.js",
+          "lb": "node_modules/@pnp/spfx-controls-react/lib/loc/fr-fr.js",
+          "mg": "node_modules/@pnp/spfx-controls-react/lib/loc/fr-fr.js",
+          "oc": "node_modules/@pnp/spfx-controls-react/lib/loc/fr-fr.js",
+          "zgh": "node_modules/@pnp/spfx-controls-react/lib/loc/fr-fr.js",
+          "wo": "node_modules/@pnp/spfx-controls-react/lib/loc/fr-fr.js",
+          "it-IT": "node_modules/@pnp/spfx-controls-react/lib/loc/it-it.js",
+          "it": "node_modules/@pnp/spfx-controls-react/lib/loc/it-it.js",
+          "ja-JP": "node_modules/@pnp/spfx-controls-react/lib/loc/ja-jp.js",
+          "lt-LT": "node_modules/@pnp/spfx-controls-react/lib/loc/lt-lt.js",
+          "lv-LV": "node_modules/@pnp/spfx-controls-react/lib/loc/lv-lv.js",
+          "nb-NO": "node_modules/@pnp/spfx-controls-react/lib/loc/nb-no.js",
+          "no": "node_modules/@pnp/spfx-controls-react/lib/loc/nb-no.js",
+          "nb": "node_modules/@pnp/spfx-controls-react/lib/loc/nb-no.js",
+          "nn": "node_modules/@pnp/spfx-controls-react/lib/loc/nb-no.js",
+          "smj-NO": "node_modules/@pnp/spfx-controls-react/lib/loc/nb-no.js",
+          "smj-Latn-NO": "node_modules/@pnp/spfx-controls-react/lib/loc/nb-no.js",
+          "se-NO": "node_modules/@pnp/spfx-controls-react/lib/loc/nb-no.js",
+          "se-Latn-NO": "node_modules/@pnp/spfx-controls-react/lib/loc/nb-no.js",
+          "sma-Latn": "node_modules/@pnp/spfx-controls-react/lib/loc/nb-no.js",
+          "sma-NO": "node_modules/@pnp/spfx-controls-react/lib/loc/nb-no.js",
+          "nl-NL": "node_modules/@pnp/spfx-controls-react/lib/loc/nl-nl.js",
+          "nl": "node_modules/@pnp/spfx-controls-react/lib/loc/nl-nl.js",
+          "fy": "node_modules/@pnp/spfx-controls-react/lib/loc/nl-nl.js",
+          "pl-PL": "node_modules/@pnp/spfx-controls-react/lib/loc/pl-pl.js",
+          "pt-PT": "node_modules/@pnp/spfx-controls-react/lib/loc/pt-pt.js",
+          "pt": "node_modules/@pnp/spfx-controls-react/lib/loc/pt-pt.js",
+          "ro-RO": "node_modules/@pnp/spfx-controls-react/lib/loc/ro-ro.js",
+          "ro": "node_modules/@pnp/spfx-controls-react/lib/loc/ro-ro.js",
+          "ru-RU": "node_modules/@pnp/spfx-controls-react/lib/loc/ru-ru.js",
+          "ru": "node_modules/@pnp/spfx-controls-react/lib/loc/ru-ru.js",
+          "ba": "node_modules/@pnp/spfx-controls-react/lib/loc/ru-ru.js",
+          "be": "node_modules/@pnp/spfx-controls-react/lib/loc/ru-ru.js",
+          "ky": "node_modules/@pnp/spfx-controls-react/lib/loc/ru-ru.js",
+          "mn": "node_modules/@pnp/spfx-controls-react/lib/loc/ru-ru.js",
+          "sah": "node_modules/@pnp/spfx-controls-react/lib/loc/ru-ru.js",
+          "tg": "node_modules/@pnp/spfx-controls-react/lib/loc/ru-ru.js",
+          "tt": "node_modules/@pnp/spfx-controls-react/lib/loc/ru-ru.js",
+          "tk": "node_modules/@pnp/spfx-controls-react/lib/loc/ru-ru.js",
+          "sk-SK": "node_modules/@pnp/spfx-controls-react/lib/loc/sk-sk.js",
+          "sk": "node_modules/@pnp/spfx-controls-react/lib/loc/sk-sk.js",
+          "sr-Latn-RS": "node_modules/@pnp/spfx-controls-react/lib/loc/sr-latn-rs.js",
+          "sr": "node_modules/@pnp/spfx-controls-react/lib/loc/sr-latn-rs.js",
+          "sv-SE": "node_modules/@pnp/spfx-controls-react/lib/loc/sv-se.js",
+          "smj": "node_modules/@pnp/spfx-controls-react/lib/loc/sv-se.js",
+          "se": "node_modules/@pnp/spfx-controls-react/lib/loc/sv-se.js",
+          "sv": "node_modules/@pnp/spfx-controls-react/lib/loc/sv-se.js",
+          "sma-SE": "node_modules/@pnp/spfx-controls-react/lib/loc/sv-se.js",
+          "sma-Latn-SE": "node_modules/@pnp/spfx-controls-react/lib/loc/sv-se.js",
+          "tr-TR": "node_modules/@pnp/spfx-controls-react/lib/loc/tr-tr.js",
+          "tr": "node_modules/@pnp/spfx-controls-react/lib/loc/tr-tr.js",
+          "vi-VN": "node_modules/@pnp/spfx-controls-react/lib/loc/vi-vn.js",
+          "vi": "node_modules/@pnp/spfx-controls-react/lib/loc/vi-vn.js",
+          "zh-CN": "node_modules/@pnp/spfx-controls-react/lib/loc/zh-cn.js",
+          "zh": "node_modules/@pnp/spfx-controls-react/lib/loc/zh-cn.js",
+          "mn-Mong": "node_modules/@pnp/spfx-controls-react/lib/loc/zh-cn.js",
+          "bo": "node_modules/@pnp/spfx-controls-react/lib/loc/zh-cn.js",
+          "ug": "node_modules/@pnp/spfx-controls-react/lib/loc/zh-cn.js",
+          "ii": "node_modules/@pnp/spfx-controls-react/lib/loc/zh-cn.js",
+          "zh-TW": "node_modules/@pnp/spfx-controls-react/lib/loc/zh-tw.js",
+          "zh-HK": "node_modules/@pnp/spfx-controls-react/lib/loc/zh-tw.js",
+          "zh-CHT": "node_modules/@pnp/spfx-controls-react/lib/loc/zh-tw.js",
+          "zh-Hant": "node_modules/@pnp/spfx-controls-react/lib/loc/zh-tw.js",
+          "zh-MO": "node_modules/@pnp/spfx-controls-react/lib/loc/zh-tw.js"
+        }
+      },
+      "@microsoft/sp-property-pane": {
+        "type": "component",
+        "version": "1.10.0",
+        "id": "f9e737b7-f0df-4597-ba8c-3060f82380db"
+      },
+      "@microsoft/sp-lodash-subset": {
+        "type": "component",
+        "version": "1.10.0",
+        "id": "73e1dc6c-8441-42cc-ad47-4bd3659f8a3a"
+      },
+      "@microsoft/sp-core-library": {
+        "type": "component",
+        "version": "1.10.0",
+        "id": "7263c7d0-1d6a-45ec-8d85-d4d1d234171b"
+      },
+      "@microsoft/sp-webpart-base": {
+        "type": "component",
+        "version": "1.10.0",
+        "id": "974a7777-0990-4136-8fa6-95d80114c2e0"
+      },
+      "react": {
+        "type": "component",
+        "version": "16.8.5",
+        "id": "0d910c1c-13b9-4e1c-9aa4-b008c5e42d7d",
+        "failoverPath": "node_modules/react/dist/react.js"
+      },
+      "react-dom": {
+        "type": "component",
+        "version": "16.8.5",
+        "id": "aa0a46ec-1505-43cd-a44a-93f3a5aa460a",
+        "failoverPath": "node_modules/react-dom/dist/react-dom.js"
+      }
+    }
+  }
+}

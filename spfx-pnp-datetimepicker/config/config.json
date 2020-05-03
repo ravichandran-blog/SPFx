@@ -1,0 +1,19 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "spfx-pnp-datetimepicker-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/spfxPnpDatetimepicker/SpfxPnpDatetimepickerWebPart.js",
+          "manifest": "./src/webparts/spfxPnpDatetimepicker/SpfxPnpDatetimepickerWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "SpfxPnpDatetimepickerWebPartStrings": "lib/webparts/spfxPnpDatetimepicker/loc/{locale}.js",
+    "ControlStrings": "node_modules/@pnp/spfx-controls-react/lib/loc/{locale}.js"
+  }
+}
