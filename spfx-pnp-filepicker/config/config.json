@@ -1,0 +1,19 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "spfx-pnp-filepicker-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/spfxPnpFilepicker/SpfxPnpFilepickerWebPart.js",
+          "manifest": "./src/webparts/spfxPnpFilepicker/SpfxPnpFilepickerWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "SpfxPnpFilepickerWebPartStrings": "lib/webparts/spfxPnpFilepicker/loc/{locale}.js",
+    "ControlStrings": "node_modules/@pnp/spfx-controls-react/lib/loc/{locale}.js"
+  }
+}
