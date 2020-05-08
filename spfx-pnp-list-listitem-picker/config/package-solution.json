@@ -1,0 +1,14 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "spfx-pnp-list-listitem-picker-client-side-solution",
+    "id": "d5671925-f50f-438c-a204-5cd625a9eb3c",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false
+  },
+  "paths": {
+    "zippedPackage": "solution/spfx-pnp-list-listitem-picker.sppkg"
+  }
+}
