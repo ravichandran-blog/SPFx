@@ -1,0 +1,14 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "spfx-jquery-3-dtagcloud-client-side-solution",
+    "id": "db8e9d38-2403-4f93-a5dc-88159fff527a",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false
+  },
+  "paths": {
+    "zippedPackage": "solution/spfx-jquery-3-dtagcloud.sppkg"
+  }
+}
