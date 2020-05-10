@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "spfx-outlook-helloworld-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/spfxOutlookHelloworld/SpfxOutlookHelloworldWebPart.js",
+          "manifest": "./src/webparts/spfxOutlookHelloworld/SpfxOutlookHelloworldWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "SpfxOutlookHelloworldWebPartStrings": "lib/webparts/spfxOutlookHelloworld/loc/{locale}.js"
+  }
+}
