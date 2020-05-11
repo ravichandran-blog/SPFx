@@ -1,0 +1,20 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "477ff55a-17f4-4c89-8edd-a159d9b5700d",
+  "alias": "SpfxTeamsHelloworldWebPart",
+  "componentType": "WebPart",
+  "version": "*",
+  "manifestVersion": 2,
+ "requiresCustomScript": false,
+  "supportedHosts": ["SharePointWebPart", "TeamsTab"],
+  "preconfiguredEntries": [{
+    "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
+    "group": { "default": "Other" },
+    "title": { "default": "spfx-teams-helloworld" },
+    "description": { "default": "spfx-teams-helloworld description" },
+    "officeFabricIconFontName": "Page",
+    "properties": {
+      "description": "spfx-teams-helloworld"
+    }
+  }]
+}

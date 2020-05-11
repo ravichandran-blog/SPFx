@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "spfx-teams-helloworld-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/spfxTeamsHelloworld/SpfxTeamsHelloworldWebPart.js",
+          "manifest": "./src/webparts/spfxTeamsHelloworld/SpfxTeamsHelloworldWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "SpfxTeamsHelloworldWebPartStrings": "lib/webparts/spfxTeamsHelloworld/loc/{locale}.js"
+  }
+}
