@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+     <Field ID="{8a2312ff-d669-4861-8341-ab4b58f23f13}"
+            Name="SPFxActive"
+            DisplayName="Active"
+            Type="Boolean"
+            Required="FALSE"
+            Group="SPFx Columns"
+            ClientSideComponentId="60320897-6b87-4b93-a7a4-9df418002080">
+            <Default>FALSE</Default>
+    </Field>
+</Elements>
