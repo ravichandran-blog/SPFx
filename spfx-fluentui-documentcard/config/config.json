@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "spfx-fluentui-documentcard-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/spfxFluentuiDocumentcard/SpfxFluentuiDocumentcardWebPart.js",
+          "manifest": "./src/webparts/spfxFluentuiDocumentcard/SpfxFluentuiDocumentcardWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "SpfxFluentuiDocumentcardWebPartStrings": "lib/webparts/spfxFluentuiDocumentcard/loc/{locale}.js"
+  }
+}
