@@ -1,0 +1,20 @@
+@import "~office-ui-fabric-react/dist/sass/References.scss";
+
+.spfxQrcode {
+  padding: 20px;
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+
+  .img {
+    width: 300px;
+    height: 300px;
+    float: none;
+  }
+  .small{
+    width: 300px;
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
