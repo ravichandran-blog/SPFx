@@ -8,7 +8,6 @@ import "@pnp/sp/webs";
 import "@pnp/sp/lists";
 import "@pnp/sp/items";
 import "@pnp/sp/fields";
-import { IField } from "@pnp/sp/fields/types";
 
 export default class SpfxPnpTaxonomypicker extends React.Component<ISpfxPnpTaxonomypickerProps, ISpfxPnpTaxonomypickerState> {
   constructor(props: ISpfxPnpTaxonomypickerProps) {
@@ -16,30 +15,33 @@ export default class SpfxPnpTaxonomypicker extends React.Component<ISpfxPnpTaxon
     sp.setup({
       spfxContext: this.props.context
     });
+    this.state = ({ tags: [] });
     this._gettags();
   }
 
   private async _gettags() {
     const item: any = await sp.web.lists.getByTitle("GroupTags").items.getById(1).get();
+    let selectedtags: any = [];
+    item.Tags.forEach(function (v: any[], i) {
+      selectedtags.push({ key: v["TermGuid"], name: v["Label"] })
+    });
     console.log(item);
-    // this.setState({
-    //   location: { latitude: item.Latitude, longitude: item.Longitude },
-    //   Name: item.Title
-    // });
-
+    this.setState({
+      tags: selectedtags
+    });
   }
 
   public render(): React.ReactElement<ISpfxPnpTaxonomypickerProps> {
     return (
       <div className={styles.spfxPnpTaxonomypicker}>
         <TaxonomyPicker allowMultipleSelections={true}
+          initialValues={this.state.tags}
           termsetNameOrID="Department"
           panelTitle="Select Departments"
           label="Departments Picker"
           context={this.props.context}
           onChange={this.onMultySelectTaxPickerChange}
           isTermSetSelectable={false} />
-
       </div>
     );
   }
