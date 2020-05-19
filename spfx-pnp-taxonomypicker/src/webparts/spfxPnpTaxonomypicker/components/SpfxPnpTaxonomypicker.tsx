@@ -2,13 +2,13 @@ import * as React from 'react';
 import styles from './SpfxPnpTaxonomypicker.module.scss';
 import { ISpfxPnpTaxonomypickerProps } from './ISpfxPnpTaxonomypickerProps';
 import { ISpfxPnpTaxonomypickerState } from './ISpfxPnpTaxonomypickerState';
-import { escape } from '@microsoft/sp-lodash-subset';
 import { TaxonomyPicker, IPickerTerms } from "@pnp/spfx-controls-react/lib/TaxonomyPicker";
 import { sp } from "@pnp/sp";
 import "@pnp/sp/webs";
 import "@pnp/sp/lists";
 import "@pnp/sp/items";
-
+import "@pnp/sp/fields";
+import { IField } from "@pnp/sp/fields/types";
 
 export default class SpfxPnpTaxonomypicker extends React.Component<ISpfxPnpTaxonomypickerProps, ISpfxPnpTaxonomypickerState> {
   constructor(props: ISpfxPnpTaxonomypickerProps) {
@@ -16,9 +16,6 @@ export default class SpfxPnpTaxonomypicker extends React.Component<ISpfxPnpTaxon
     sp.setup({
       spfxContext: this.props.context
     });
-    // this.state = {
-
-    // }
     this._gettags();
   }
 
@@ -40,43 +37,35 @@ export default class SpfxPnpTaxonomypicker extends React.Component<ISpfxPnpTaxon
           panelTitle="Select Departments"
           label="Departments Picker"
           context={this.props.context}
-          onChange={this.onTaxPickerChange}
-
+          onChange={this.onMultySelectTaxPickerChange}
           isTermSetSelectable={false} />
 
       </div>
     );
   }
 
-
-
-
-
-  private async onTaxPickerChange(terms: IPickerTerms) {
-    console.log("Terms", terms);
+  //Use this function if your control's select type is Multy
+  private async onMultySelectTaxPickerChange(terms: IPickerTerms) {
+    let list = sp.web.lists.getByTitle("GroupTags");
+    const field = await list.fields.getByTitle(`Tags_0`).get();
     let termsString: string = '';
     terms.forEach(function (v, i) {
-      let guid = v.key;
-      if (guid !== undefined) {
-        guid = guid.replace('/Guid(', '').replace('/', '').replace(')', '');
-      } else {
-        guid = '';
-      }
-      termsString += `-1;#${v.name}|${guid};#`;
-    })
-
-
-    let list = sp.web.lists.getByTitle("GroupTags");
-
-
-    terms.forEach(term => {
-
+      termsString += `-1;#${v.name}|${v.key};#`;
     })
     const data = {};
-    data['Tags'] = termsString;
-
-
-
+    data[field.InternalName] = termsString;
     const i = await list.items.getById(1).update(data);
+  }
+
+  //Use this function if your control's select type is Single
+  private async onSingleSelectTaxPickerChange(terms: IPickerTerms) {
+    const data = {};
+    data['Tags'] = {
+      "__metadata": { "type": "SP.Taxonomy.TaxonomyFieldValue" },
+      "Label": terms[0].name,
+      'TermGuid': terms[0].key,
+      'WssId': '-1'
+    };
+    return await sp.web.lists.getByTitle("GroupTags").items.getById(1).update(data);
   }
 }
