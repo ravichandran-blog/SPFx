@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "spfx-fluentui-messagebar-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/spfxFluentuiMessagebar/SpfxFluentuiMessagebarWebPart.js",
+          "manifest": "./src/webparts/spfxFluentuiMessagebar/SpfxFluentuiMessagebarWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "SpfxFluentuiMessagebarWebPartStrings": "lib/webparts/spfxFluentuiMessagebar/loc/{locale}.js"
+  }
+}
