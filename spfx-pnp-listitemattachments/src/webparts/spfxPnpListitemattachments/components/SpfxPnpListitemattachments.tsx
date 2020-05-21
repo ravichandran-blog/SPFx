@@ -2,16 +2,19 @@ import * as React from 'react';
 import styles from './SpfxPnpListitemattachments.module.scss';
 import { ISpfxPnpListitemattachmentsProps } from './ISpfxPnpListitemattachmentsProps';
 import { ISpfxPnpListitemattachmentsState } from './ISpfxPnpListitemattachmentsState';
-import { ListPicker, ListItemPicker, ListItemAttachments } from "@pnp/spfx-controls-react/lib";
+import { ListPicker, ListItemPicker } from "@pnp/spfx-controls-react/lib";
 import { autobind } from 'office-ui-fabric-react/lib/Utilities';
+import { SpfxAttachmentControl } from '../../spfxPnpListitemattachments/components/SpfxAttachmentControl';
 
 export default class SpfxPnpListitemattachments extends React.Component<ISpfxPnpListitemattachmentsProps, ISpfxPnpListitemattachmentsState> {
   constructor(props: ISpfxPnpListitemattachmentsProps, state: ISpfxPnpListitemattachmentsState) {
     super(props);
-    this.state = { SeletedList: "753d4340-5c3d-4db9-a7ee-1ba650afb1f5", SelectedItem: 1 };
+    this.state = { SeletedList: "", SelectedItem: null };
   }
 
   public render(): React.ReactElement<ISpfxPnpListitemattachmentsProps> {
+    let attaprops: any = [];
+    attaprops = ({ SeletedList: this.state.SeletedList, SelectedItem: this.state.SelectedItem, context: this.props.context });
     return (
       <div className={styles.spfxPnpListitemattachments}>
         <ListPicker context={this.props.context}
@@ -20,7 +23,6 @@ export default class SpfxPnpListitemattachments extends React.Component<ISpfxPnp
           baseTemplate={100}
           includeHidden={false}
           multiSelect={false}
-          selectedList={this.state.SeletedList}
           onSelectionChanged={this.onListPickerChange} />
         <br></br>
         <label>Search List Item</label>
@@ -29,17 +31,13 @@ export default class SpfxPnpListitemattachments extends React.Component<ISpfxPnp
           keyColumnInternalName='Id'
           itemLimit={1}
           onSelectedItem={this.onSelectedItem}
-          context={this.props.context}
-          defaultSelectedItems={[{ key: this.state.SelectedItem, name: 'Apples' }]} />
+          context={this.props.context} />
         <br></br>
-        <label>Attachments</label>
-        <ListItemAttachments listId={this.state.SeletedList}
-          itemId={this.state.SelectedItem}
-          context={this.props.context}
-          disabled={false} />
+        <SpfxAttachmentControl {...attaprops}></SpfxAttachmentControl>
       </div>
     );
   }
+
 
   @autobind
   private onListPickerChange(selectedlist: string) {
@@ -50,8 +48,12 @@ export default class SpfxPnpListitemattachments extends React.Component<ISpfxPnp
 
   @autobind
   private onSelectedItem(data: { key: string; name: string }[]) {
-    for (const item of data) {
-      this.setState({ SelectedItem: +item.key })
+    if (data.length == 0) {
+      this.setState({ SelectedItem: null });
     }
+    else
+      for (const item of data) {
+        this.setState({ SelectedItem: +item.key })
+      }
   }
 }
