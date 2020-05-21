@@ -1,0 +1,19 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "spfx-pnp-listitemattachments-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/spfxPnpListitemattachments/SpfxPnpListitemattachmentsWebPart.js",
+          "manifest": "./src/webparts/spfxPnpListitemattachments/SpfxPnpListitemattachmentsWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "SpfxPnpListitemattachmentsWebPartStrings": "lib/webparts/spfxPnpListitemattachments/loc/{locale}.js",
+    "ControlStrings": "node_modules/@pnp/spfx-controls-react/lib/loc/{locale}.js"
+  }
+}
