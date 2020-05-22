@@ -1,6 +1,12 @@
 @import '~office-ui-fabric-react/dist/sass/References.scss';
 
 .spfxFluentuiPanel {
+  margin: 40px;
+
+  .Dropdown
+  {
+    min-width: 300px;
+  }
   .container {
     max-width: 700px;
     margin: 0px auto;

@@ -1,16 +1,17 @@
 /* tslint:disable */
 require("./SpfxFluentuiPanel.module.css");
 const styles = {
-  spfxFluentuiPanel: 'spfxFluentuiPanel_99b32600',
-  container: 'container_99b32600',
-  row: 'row_99b32600',
-  column: 'column_99b32600',
-  'ms-Grid': 'ms-Grid_99b32600',
-  title: 'title_99b32600',
-  subTitle: 'subTitle_99b32600',
-  description: 'description_99b32600',
-  button: 'button_99b32600',
-  label: 'label_99b32600'
+  spfxFluentuiPanel: 'spfxFluentuiPanel_f17274da',
+  Dropdown: 'Dropdown_f17274da',
+  container: 'container_f17274da',
+  row: 'row_f17274da',
+  column: 'column_f17274da',
+  'ms-Grid': 'ms-Grid_f17274da',
+  title: 'title_f17274da',
+  subTitle: 'subTitle_f17274da',
+  description: 'description_f17274da',
+  button: 'button_f17274da',
+  label: 'label_f17274da'
 };
 
 export default styles;
