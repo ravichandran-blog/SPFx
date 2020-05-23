@@ -16,7 +16,7 @@ export default class SpfxFluentuiDropdown extends React.Component<ISpfxFluentuiD
     sp.setup({
       spfxContext: this.props.context
     });
-    this.state = ({ projectlookupvalues: [], salestitle: '', seletedprojects: [] })
+    this.state = ({ projectlookupvalues: [], salestitle: '', seletedprojects: null })
     this._getLookupvalues();
   }
 
@@ -47,7 +47,7 @@ export default class SpfxFluentuiDropdown extends React.Component<ISpfxFluentuiD
         <TextField
           className={styles.fixedwidth}
           label="Title" value={this.state.salestitle} onChanged={(titlevalue) => this.setState({ salestitle: titlevalue })} />
-        <Dropdown
+        {this.state.seletedprojects == null ? '' : <Dropdown
           placeholder="Select projects"
           label="Projects"
           onChange={this.projects_selection}
@@ -55,7 +55,8 @@ export default class SpfxFluentuiDropdown extends React.Component<ISpfxFluentuiD
           options={this.state.projectlookupvalues}
           className={styles.fixedwidth}
           defaultSelectedKeys={this.state.seletedprojects}
-        />
+        />}
+
         <br />
         <PrimaryButton text="Save" onClick={this._savesales} />
       </div>
@@ -64,7 +65,7 @@ export default class SpfxFluentuiDropdown extends React.Component<ISpfxFluentuiD
 
   @autobind
   private async _savesales() {
-    await sp.web.lists.getByTitle("LookupFields").items.add({
+    await sp.web.lists.getByTitle("Sales").items.getById(1).update({
       Title: this.state.salestitle,
       ProjectsId: {
         results: this.state.seletedprojects
