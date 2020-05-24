@@ -1,0 +1,19 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "spfx-pnp-iframedialog-extension-field-customizer": {
+      "components": [
+        {
+          "entrypoint": "./lib/extensions/spfxPnpIframedialogExtension/SpfxPnpIframedialogExtensionFieldCustomizer.js",
+          "manifest": "./src/extensions/spfxPnpIframedialogExtension/SpfxPnpIframedialogExtensionFieldCustomizer.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "SpfxPnpIframedialogExtensionFieldCustomizerStrings": "lib/extensions/spfxPnpIframedialogExtension/loc/{locale}.js",
+    "ControlStrings": "node_modules/@pnp/spfx-controls-react/lib/loc/{locale}.js"
+  }
+}

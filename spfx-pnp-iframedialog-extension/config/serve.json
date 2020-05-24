@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/core-build/serve.schema.json",
+  "port": 4321,
+  "https": true,
+  "serveConfigurations": {
+    "default": {
+      "pageUrl": "https://ravichandran.sharepoint.com/sites/TheLanding/Policies/Forms/AllItems.aspx",
+      "fieldCustomizers": {
+        "Popup": {
+          "id": "23ef2026-7f63-40d4-9b6a-11bbea6c1ec2",
+          "properties": {
+            "sampleText": "Value"
+          }
+        }
+      }
+    }
+  }
+}

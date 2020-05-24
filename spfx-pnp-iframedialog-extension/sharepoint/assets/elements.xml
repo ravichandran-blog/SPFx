@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+    <Field ID="{c78fa9c1-6875-47d4-9c47-f9da19edc564}" Name="SPFxPopup" DisplayName="Popup" Type="Calculated" Min="0" Required="FALSE" Group="SPFx Columns" ClientSideComponentId="23ef2026-7f63-40d4-9b6a-11bbea6c1ec2">
+        <Formula>="value"</Formula>
+    </Field>
+</Elements>
