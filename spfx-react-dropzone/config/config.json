@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "spfx-react-dropzone-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/spfxReactDropzone/SpfxReactDropzoneWebPart.js",
+          "manifest": "./src/webparts/spfxReactDropzone/SpfxReactDropzoneWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "SpfxReactDropzoneWebPartStrings": "lib/webparts/spfxReactDropzone/loc/{locale}.js"
+  }
+}
