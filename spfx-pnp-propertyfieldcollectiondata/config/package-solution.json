@@ -1,0 +1,14 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "spfx-pnp-propertyfieldcollectiondata-client-side-solution",
+    "id": "a2c36fa7-cb3c-4749-84c3-a58eff025d29",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false
+  },
+  "paths": {
+    "zippedPackage": "solution/spfx-pnp-propertyfieldcollectiondata.sppkg"
+  }
+}
