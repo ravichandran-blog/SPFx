@@ -15,7 +15,6 @@ export default class SpfxPnpPropertyfieldcollectiondata extends React.Component<
             })}
           </ul>
         }
-
       </div>
     );
   }
