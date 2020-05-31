@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "spfx-pnp-logging-azure-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/spfxPnpLoggingAzure/SpfxPnpLoggingAzureWebPart.js",
+          "manifest": "./src/webparts/spfxPnpLoggingAzure/SpfxPnpLoggingAzureWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "SpfxPnpLoggingAzureWebPartStrings": "lib/webparts/spfxPnpLoggingAzure/loc/{locale}.js"
+  }
+}
