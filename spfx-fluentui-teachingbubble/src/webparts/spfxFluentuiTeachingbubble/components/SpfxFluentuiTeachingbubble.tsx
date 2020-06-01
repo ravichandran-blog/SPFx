@@ -1,179 +1,145 @@
 import * as React from 'react';
-import * as moment from 'moment';
+import { useState } from 'react';
 import styles from './SpfxFluentuiTeachingbubble.module.scss';
 import { ISpfxFluentuiTeachingbubbleProps } from './ISpfxFluentuiTeachingbubbleProps';
-import { ISpfxFluentuiTeachingbubbleState } from './ISpfxFluentuiTeachingbubbleState';
-import { ListView, IViewField, SelectionMode } from "@pnp/spfx-controls-react/lib/ListView";
+import { Rating, RatingSize } from 'office-ui-fabric-react/lib/Rating';
 import { DefaultButton, IButtonProps } from 'office-ui-fabric-react/lib/Button';
 import { ChoiceGroup, IChoiceGroupOption } from 'office-ui-fabric-react/lib/ChoiceGroup';
 import { TeachingBubble } from 'office-ui-fabric-react/lib/TeachingBubble';
+import { Toggle } from 'office-ui-fabric-react/lib/Toggle';
 
-import { sp } from "@pnp/sp";
-import { autobind } from 'office-ui-fabric-react/lib/Utilities';
-import "@pnp/sp/webs";
-import "@pnp/sp/files";
-import "@pnp/sp/folders";
+function SpfxFluentuiTeachingbubble(props: ISpfxFluentuiTeachingbubbleProps) {
+  const localvalue = localStorage.getItem('694bd607-18b6-4c53-b085-fdc985c8963e')
+  const [bubble1, setBubble1] = useState(true)
+  const [bubble2, setBubble2] = useState(false)
+  const [bubble3, setBubble3] = useState(false)
 
-const options: IChoiceGroupOption[] = [
-  { key: 'day', text: 'Day', iconProps: { iconName: 'CalendarDay' } },
-  { key: 'week', text: 'Week', iconProps: { iconName: 'CalendarWeek' } },
-  { key: 'month', text: 'Month', iconProps: { iconName: 'Calendar' }, disabled: true },
-];
+  const options: IChoiceGroupOption[] = [
+    { key: 'day', text: 'Day', iconProps: { iconName: 'CalendarDay' } },
+    { key: 'week', text: 'Week', iconProps: { iconName: 'CalendarWeek' } },
+    { key: 'month', text: 'Month', iconProps: { iconName: 'Calendar' }, disabled: true },
+  ];
 
+  const options2: IChoiceGroupOption[] = [
+    {
+      key: 'bar',
+      imageAlt: 'Bar chart icon',
+      text: 'Clustered bar chart',
+      iconProps:{iconName:'StackedColumnChart2Fill'}
+    },
+    {
+      key: 'pie',
+      iconProps:{iconName:'PieDouble'},
+      imageSize: { width: 32, height: 32 },
+      text: 'Pie chart',
+    },
+  ];
+  
 
-
-
-export default class SpfxFluentuiTeachingbubble extends React.Component<ISpfxFluentuiTeachingbubbleProps, ISpfxFluentuiTeachingbubbleState> {
-  constructor(props: ISpfxFluentuiTeachingbubbleProps, state: ISpfxFluentuiTeachingbubbleState) {
-    super(props);
-    sp.setup({
-      spfxContext: this.props.context
-    });
-    var _viewFields: IViewField[] = [
-      {
-        name: "Name",
-        linkPropertyName: "ServerRelativeUrl",
-        displayName: "Name",
-        sorting: true,
-        minWidth: 250,
-      },
-      {
-        name: "Author.Title",
-        displayName: "Author",
-        sorting: false,
-        minWidth: 200,
-        render: (item: any) => {
-          const authoremail = item['Author.UserPrincipalName'];
-          return <a href={'mailto:' + authoremail}>{item['Author.Title']}</a>;
-        }
-      },
-      {
-        name: "TimeCreated",
-        displayName: "Created",
-        minWidth: 150,
-        render: (item: any) => {
-          const created = item["TimeCreated"];
-          if (created) {
-            const createdDate = moment(created);
-            return <span>{createdDate.format('DD/MM/YYYY HH:mm:ss')}</span>;
-          }
-        }
-      }
-    ];
-    this.state = { items: [], viewFields: _viewFields, bubble1: false, bubble2: false, bubble3: false, };
-    this._getfiles();
+  const dontshowmeagain = () => {
+    localStorage.setItem('694bd607-18b6-4c53-b085-fdc985c8963e', 'done')
   }
 
-  @autobind
-  private async _getfiles() {
-    const allItems: any[] = await sp.web.getFolderByServerRelativeUrl("/sites/TheLanding/Policies").files.select().expand("ListItemAllFields,Author").get();
-    this.setState({ items: allItems });
-  }
+  const bubble1Next: IButtonProps = React.useMemo(
+    () => ({
+      children: 'Next',
+      onClick: () => { setBubble2(true); setBubble1(false) },
+    }),
+    [setBubble2, setBubble1],
+  );
 
-  public render(): React.ReactElement<ISpfxFluentuiTeachingbubbleProps> {
-    return (
-      <div className={styles.spfxFluentuiTeachingbubble}>
-        <DefaultButton href="http://bing.com" target="_blank" title="let us bing!" >
-          Bing
-        </DefaultButton>
-        <br />
-        <br />
-        <ChoiceGroup label="Pick one icon" defaultSelectedKey="day" options={options} />
+  const bubble1Dontshowagain: IButtonProps = React.useMemo(
+    () => ({
+      children: 'Close',
+      onClick: () => { setBubble1(false), dontshowmeagain() },
+    }),
+    [setBubble1, dontshowmeagain],
+  );
 
-        <br />
-        <br />
-        <ListView
-          items={this.state.items}
-          viewFields={this.state.viewFields}
-          iconFieldName="ServerRelativeUrl"
-          compact={true}
-          selectionMode={SelectionMode.multiple}
-          selection={this._getSelection}
-          showFilter={true}
-          filterPlaceHolder="Search..." />
+  const bubble2Previous: IButtonProps = React.useMemo(
+    () => ({
+      children: 'Previous',
+      onClick: () => { setBubble1(true); setBubble2(false) },
+    }),
+    [setBubble2, setBubble1],
+  );
 
+  const bubble2Next: IButtonProps = React.useMemo(
+    () => ({
+      children: 'Next',
+      onClick: () => { setBubble2(false); setBubble3(true) },
+    }),
+    [setBubble2, setBubble3],
+  );
 
+  const bubble3Previous: IButtonProps = React.useMemo(
+    () => ({
+      children: 'Previous',
+      onClick: () => { setBubble2(true); setBubble3(false) },
+    }),
+    [setBubble2, setBubble3],
+  );
 
-        <DefaultButton
-          id="targetButton"
-          onClick={this.toggleTeachingBubbleVisible}
-          text={'Show TeachingBubble'}
-        />
-
-        {this.state.bubble1 && (
-          <TeachingBubble
-            target="#targetButton"
-            primaryButtonProps={this.bubble1Next}
-            secondaryButtonProps={this.bubble1Dontshowagain}
-            footerContent="1 of 3"
-            headline="Discover what’s trending around you">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, nulla, ipsum? Molestiae quis aliquam magni
-            harum non?
-          </TeachingBubble>
-        )}
-        {this.state.bubble2 && (
-          <TeachingBubble
-            target="#targetButton"
-            primaryButtonProps={this.bubble2Previous}
-            secondaryButtonProps={this.bubble2Next}
-            onDismiss={this.toggleTeachingBubbleVisible}
-            footerContent="2 of 3"
-            headline="Discover what’s trending around you">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, nulla, ipsum? Molestiae quis aliquam magni
-            harum non?
-          </TeachingBubble>
-        )}
-        {this.state.bubble3 && (
-          <TeachingBubble
-            target="#targetButton"
-            primaryButtonProps={this.bubble3Previous}
-            secondaryButtonProps={this.bubble3Close}
-            onDismiss={this.toggleTeachingBubbleVisible}
-            footerContent="3 of 3"
-            headline="Discover what’s trending around you">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, nulla, ipsum? Molestiae quis aliquam magni
-            harum non?
-          </TeachingBubble>
-        )}
-      </div>
-    );
-  }
-
-  private onClick = (event: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement | HTMLDivElement, MouseEvent>) => console.log('test');
+  const bubble3Close: IButtonProps = React.useMemo(
+    () => ({
+      children: 'Close',
+      onClick: () => { setBubble3(false), dontshowmeagain() },
+    }),
+    [setBubble3, dontshowmeagain],
+  );
 
 
-  private bubble1Next: IButtonProps = {
-    children: 'Next',
-    this.onClick:this._getSelection
-  };
 
-  private bubble1Dontshowagain: IButtonProps = {
-    children: 'Close',
-    text'nice'
-  };
+  return (
+    <div className={styles.spfxFluentuiTeachingbubble}>
+      <DefaultButton id={'targetButton'} href="http://bing.com" target="_blank" title="let us bing!" >
+        Bing
+      </DefaultButton>
+      <br />
+      <br />
+      <ChoiceGroup width="300px" id={'targetChoice'} label="Pick one icon" defaultSelectedKey="day" options={options} />
+      <br />
+      <br />
+      <ChoiceGroup id={'targetChoice2'} label="Pick one image" defaultSelectedKey="bar" options={options2} />;
 
-  private bubble2Previous: IButtonProps = {
-    children: 'Previous',
-  };
 
-  private bubble2Next: IButtonProps = {
-    children: 'Next',
-  };
 
-  private bubble3Previous: IButtonProps = {
-    children: 'Previous',
-  };
 
-  private bubble3Close: IButtonProps = {
-    children: 'Close',
-  };
-
-  @autobind
-  private toggleTeachingBubbleVisible() {
-    this.setState({ bubble1: true })
-  }
-
-  private _getSelection(items: any[]) {
-    console.log('Selected items:', items);
-  }
+      {bubble1 && (
+        <TeachingBubble
+          target="#targetButton"
+          primaryButtonProps={bubble1Next}
+          secondaryButtonProps={bubble1Dontshowagain}
+          footerContent="1 of 3"
+          headline="Discover what’s trending around you">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, nulla, ipsum? Molestiae quis aliquam magni
+          harum non?
+        </TeachingBubble>
+      )}
+      {bubble2 && (
+        <TeachingBubble
+          target="#targetChoice"
+          primaryButtonProps={bubble2Next}
+          secondaryButtonProps={bubble2Previous}
+          footerContent="2 of 3"
+          headline="Discover what’s trending around you">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, nulla, ipsum? Molestiae quis aliquam magni
+          harum non?
+        </TeachingBubble>
+      )}
+      {bubble3 && (
+        <TeachingBubble
+          target="#targetChoice2"
+          primaryButtonProps={bubble3Close}
+          secondaryButtonProps={bubble3Previous}
+          footerContent="3 of 3"
+          headline="Discover what’s trending around you">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, nulla, ipsum? Molestiae quis aliquam magni
+          harum non?
+        </TeachingBubble>
+      )}
+    </div>
+  );
 }
+
+export default SpfxFluentuiTeachingbubble;
