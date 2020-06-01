@@ -1,0 +1,19 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "spfx-fluentui-teachingbubble-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/spfxFluentuiTeachingbubble/SpfxFluentuiTeachingbubbleWebPart.js",
+          "manifest": "./src/webparts/spfxFluentuiTeachingbubble/SpfxFluentuiTeachingbubbleWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "SpfxFluentuiTeachingbubbleWebPartStrings": "lib/webparts/spfxFluentuiTeachingbubble/loc/{locale}.js",
+    "ControlStrings": "node_modules/@pnp/spfx-controls-react/lib/loc/{locale}.js"
+  }
+}
