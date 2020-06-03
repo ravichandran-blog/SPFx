@@ -1,0 +1,14 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "spfx-azure-bingspellcheck-client-side-solution",
+    "id": "e6f68bbc-6e08-4e96-8014-5132abd6cac2",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false
+  },
+  "paths": {
+    "zippedPackage": "solution/spfx-azure-bingspellcheck.sppkg"
+  }
+}
