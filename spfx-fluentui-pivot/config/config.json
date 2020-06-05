@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "spfx-fluentui-pivot-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/spfxFluentuiPivot/SpfxFluentuiPivotWebPart.js",
+          "manifest": "./src/webparts/spfxFluentuiPivot/SpfxFluentuiPivotWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "SpfxFluentuiPivotWebPartStrings": "lib/webparts/spfxFluentuiPivot/loc/{locale}.js"
+  }
+}
