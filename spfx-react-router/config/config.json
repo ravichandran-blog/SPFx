@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "spfx-react-router-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/spfxReactRouter/SpfxReactRouterWebPart.js",
+          "manifest": "./src/webparts/spfxReactRouter/SpfxReactRouterWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "SpfxReactRouterWebPartStrings": "lib/webparts/spfxReactRouter/loc/{locale}.js"
+  }
+}
