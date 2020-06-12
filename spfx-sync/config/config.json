@@ -1,0 +1,27 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "spfx-send-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/spfxSend/SpfxSendWebPart.js",
+          "manifest": "./src/webparts/spfxSend/SpfxSendWebPart.manifest.json"
+        }
+      ]
+    },
+    "spfx-receive-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/spfxReceive/SpfxReceiveWebPart.js",
+          "manifest": "./src/webparts/spfxReceive/SpfxReceiveWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "SpfxSendWebPartStrings": "lib/webparts/spfxSend/loc/{locale}.js",
+    "SpfxReceiveWebPartStrings": "lib/webparts/spfxReceive/loc/{locale}.js"
+  }
+}
