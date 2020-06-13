@@ -1,3 +1,5 @@
+import { DynamicProperty } from '@microsoft/sp-component-base';
 export interface ISpfxReceiveProps {
-  description: string;
+  title: string;
+  selectedlist:string;
 }

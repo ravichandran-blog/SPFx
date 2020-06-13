@@ -6,19 +6,14 @@ import {
   PropertyPaneTextField
 } from '@microsoft/sp-property-pane';
 import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
-
 import * as strings from 'SpfxSendWebPartStrings';
 import SpfxSend from './components/SpfxSend';
 import { ISpfxSendProps } from './components/ISpfxSendProps';
-
-
 import { IDynamicDataPropertyDefinition, IDynamicDataCallables } from '@microsoft/sp-dynamic-data';
 
-export interface IProduct {
-  product: string;
+export interface IList {
+  selectedlist: string;
 }
-
-
 
 export interface ISpfxSendWebPartProps {
   description: string;
@@ -26,47 +21,40 @@ export interface ISpfxSendWebPartProps {
 
 export default class SpfxSendWebPart extends BaseClientSideWebPart<ISpfxSendWebPartProps> implements IDynamicDataCallables {
 
+  private _selectedlist: IList;
   protected onInit(): Promise<void> {
-    // register this web part as dynamic data source
     this.context.dynamicDataSourceManager.initializeSource(this);
-
+    this.context.dynamicDataSourceManager.notifyPropertyChanged('selectedlist');
     return Promise.resolve();
   }
 
   public getPropertyDefinitions(): ReadonlyArray<IDynamicDataPropertyDefinition> {
     return [
       {
-        id: 'product',
-        title: 'Product'
+        id: 'selectedlist',
+        title: 'selectedlist'
       }
     ];
   }
-  private _selectedProduct: IProduct;
 
-  private _productSelected = (product: IProduct): void => {
-    this._selectedProduct = product;
-    this.context.dynamicDataSourceManager.notifyPropertyChanged('product');
+  private _listelected = (list: IList): void => {
+    this._selectedlist = list;
+    this.context.dynamicDataSourceManager.notifyPropertyChanged('selectedlist');
   }
 
-
-  public getPropertyValue(propertyId: string): IProduct {
-    switch (propertyId) {
-      case 'product':
-        return this._selectedProduct;
-    }
-    throw new Error('Bad property id');
+  public getPropertyValue(propertyId: string): IList {
+    return this._selectedlist;
   }
-
-
 
   public render(): void {
     const element: React.ReactElement<ISpfxSendProps> = React.createElement(
       SpfxSend,
       {
-        description: this.properties.description
+        title: this.properties.description,
+        context: this.context,
+        _listelected: this._listelected
       }
     );
-
     ReactDom.render(element, this.domElement);
   }
 

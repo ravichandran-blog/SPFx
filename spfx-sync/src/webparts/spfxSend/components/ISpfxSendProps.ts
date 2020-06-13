@@ -1,3 +1,5 @@
 export interface ISpfxSendProps {
-  description: string;
+  title: string;
+  context: any;
+  _listelected: any;
 }

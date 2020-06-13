@@ -3,55 +3,44 @@ import * as ReactDom from 'react-dom';
 import { Version } from '@microsoft/sp-core-library';
 import {
   IPropertyPaneConfiguration,
-  PropertyPaneTextField
-} from '@microsoft/sp-property-pane';
-import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
-
-import * as strings from 'SpfxReceiveWebPartStrings';
-import SpfxReceive from './components/SpfxReceive';
-import { ISpfxReceiveProps } from './components/ISpfxReceiveProps';
-
-
-import { DynamicProperty } from '@microsoft/sp-component-base';
-import { IWebPartPropertiesMetadata } from '@microsoft/sp-webpart-base';
-
-import {
+  PropertyPaneTextField,
   PropertyPaneDynamicFieldSet,
   PropertyPaneDynamicField,
   DynamicDataSharedDepth,
   IPropertyPaneConditionalGroup
 } from '@microsoft/sp-property-pane';
+import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
+import * as strings from 'SpfxReceiveWebPartStrings';
+import SpfxReceive from './components/SpfxReceive';
+import { ISpfxReceiveProps } from './components/ISpfxReceiveProps';
+import { DynamicProperty } from '@microsoft/sp-component-base';
+import { IWebPartPropertiesMetadata } from '@microsoft/sp-webpart-base';
 
 export interface ISpfxReceiveWebPartProps {
   description: string;
-  product: DynamicProperty<string>;
+  selectedlist: DynamicProperty<string>;
 }
 
 export default class SpfxReceiveWebPart extends BaseClientSideWebPart<ISpfxReceiveWebPartProps> {
-
-  
   public render(): void {
-    const product: string | undefined = this.properties.product.tryGetValue();
-    const needsConfiguration: boolean = (!product && !this.properties.product.tryGetSource());
-
+    const selectedlist: string | undefined = this.properties.selectedlist.tryGetValue();
     const element: React.ReactElement<ISpfxReceiveProps> = React.createElement(
       SpfxReceive,
       {
-        description: this.properties.description
+        title: this.properties.description,
+        selectedlist:selectedlist
       }
     );
-
     ReactDom.render(element, this.domElement);
   }
 
   protected get propertiesMetadata(): IWebPartPropertiesMetadata {
     return {
-      'product': {
+      'selectedlist': {
         dynamicPropertyType: 'string'
       }
     };
   }
-
 
   protected onDispose(): void {
     ReactDom.unmountComponentAtNode(this.domElement);
@@ -68,7 +57,7 @@ export default class SpfxReceiveWebPart extends BaseClientSideWebPart<ISpfxRecei
           groups: [
             {
               primaryGroup: {
-                groupName: "strings.DataGroupName",
+                groupName: "PrimaryGroup",
                 groupFields: [
                   PropertyPaneTextField('description', {
                     label: strings.DescriptionFieldLabel
@@ -76,13 +65,13 @@ export default class SpfxReceiveWebPart extends BaseClientSideWebPart<ISpfxRecei
                 ]
               },
               secondaryGroup: {
-                groupName: "strings.DataGroupName",
+                groupName: "SecondaryGroup",
                 groupFields: [
                   PropertyPaneDynamicFieldSet({
-                    label: 'product',
+                    label: 'selectedlist',
                     fields: [
-                      PropertyPaneDynamicField('product', {
-                        label: "strings.ProductFieldLabel"
+                      PropertyPaneDynamicField('selectedlist', {
+                        label: ""
                       })
                     ],
                     sharedConfiguration: {
@@ -91,7 +80,7 @@ export default class SpfxReceiveWebPart extends BaseClientSideWebPart<ISpfxRecei
                   })
                 ]
               },
-              showSecondaryGroup: !!this.properties.product.tryGetSource()
+              showSecondaryGroup: !!this.properties.selectedlist.tryGetSource()
             } as IPropertyPaneConditionalGroup
           ]
         }
