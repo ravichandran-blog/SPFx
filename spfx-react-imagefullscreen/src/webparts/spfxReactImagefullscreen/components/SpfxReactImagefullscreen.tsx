@@ -1,18 +1,18 @@
 import * as React from 'react';
 import { ISpfxReactImagefullscreenProps } from './ISpfxReactImagefullscreenProps';
 import Lightbox from 'react-image-lightbox';
-import 'react-image-lightbox/style.css'; // This only needs to be imported once in your app
+import 'react-image-lightbox/style.css';
+import { autobind } from 'office-ui-fabric-react/lib/Utilities';
+import { sp } from "@pnp/sp";
+import "@pnp/sp/webs";
+import "@pnp/sp/files";
+import "@pnp/sp/folders";
 
-const images = [
-  '//placekitten.com/1500/500',
-  '//placekitten.com/4000/3000',
-  '//placekitten.com/800/1200',
-  '//placekitten.com/1500/1500',
-];
 
 export interface ISpfxReactImagefullscreenState {
   photoIndex: number;
   isOpen: boolean;
+  Images: string[]
 }
 
 export default class SpfxReactImagefullscreen extends React.Component<ISpfxReactImagefullscreenProps, ISpfxReactImagefullscreenState> {
@@ -22,12 +22,27 @@ export default class SpfxReactImagefullscreen extends React.Component<ISpfxReact
     this.state = {
       photoIndex: 0,
       isOpen: false,
+      Images: []
     };
+    this._getFiles();
+  }
+
+  @autobind
+  private async _getFiles() {
+    let cardsdata: string[] = [];
+    const items: any[] = await sp.web.getFolderByServerRelativeUrl("/sites/TheLanding/Images1").files.select().expand("ListItemAllFields").get();
+    let siteurl = this.props.context.pageContext.web.absoluteUrl;
+    let siterooturl = this.props.context.pageContext.web.absoluteUrl.replace(this.props.context.pageContext.web._serverRelativeUrl, "");
+    items.forEach(function (v, i) {
+      let url = siterooturl + v.ServerRelativeUrl;
+      cardsdata.push(url)
+    });
+    this.setState({ Images: cardsdata });
   }
 
   public render(): React.ReactElement<ISpfxReactImagefullscreenProps> {
-    const { photoIndex, isOpen } = this.state;
-
+    const { photoIndex, isOpen, Images } = this.state;
+  
     return (
       <div>
         <button type="button" onClick={() => this.setState({ isOpen: true })}>
@@ -36,18 +51,18 @@ export default class SpfxReactImagefullscreen extends React.Component<ISpfxReact
 
         {isOpen && (
           <Lightbox
-            mainSrc={images[photoIndex]}
-            nextSrc={images[(photoIndex + 1) % images.length]}
-            prevSrc={images[(photoIndex + images.length - 1) % images.length]}
+            mainSrc={Images[photoIndex]}
+            nextSrc={Images[(photoIndex + 1) % Images.length]}
+            prevSrc={Images[(photoIndex + Images.length - 1) % Images.length]}
             onCloseRequest={() => this.setState({ isOpen: false })}
             onMovePrevRequest={() =>
               this.setState({
-                photoIndex: (photoIndex + images.length - 1) % images.length,
+                photoIndex: (photoIndex + Images.length - 1) % Images.length,
               })
             }
             onMoveNextRequest={() =>
               this.setState({
-                photoIndex: (photoIndex + 1) % images.length,
+                photoIndex: (photoIndex + 1) % Images.length,
               })
             }
           />

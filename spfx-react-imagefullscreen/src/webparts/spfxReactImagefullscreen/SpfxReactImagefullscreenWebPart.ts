@@ -21,10 +21,10 @@ export default class SpfxReactImagefullscreenWebPart extends BaseClientSideWebPa
     const element: React.ReactElement<ISpfxReactImagefullscreenProps> = React.createElement(
       SpfxReactImagefullscreen,
       {
-        description: this.properties.description
+        description: this.properties.description,
+        context:this.context
       }
     );
-
     ReactDom.render(element, this.domElement);
   }
 
