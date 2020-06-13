@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "spfx-react-confetti-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/spfxReactConfetti/SpfxReactConfettiWebPart.js",
+          "manifest": "./src/webparts/spfxReactConfetti/SpfxReactConfettiWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "SpfxReactConfettiWebPartStrings": "lib/webparts/spfxReactConfetti/loc/{locale}.js"
+  }
+}
