@@ -15,9 +15,16 @@ import { PrimaryButton } from 'office-ui-fabric-react';
 export default class SpfxReactDaterangepicker extends React.Component<ISpfxReactDaterangepickerProps, ISpfxReactDaterangepickerState> {
   constructor(props: ISpfxReactDaterangepickerProps, state: ISpfxReactDaterangepickerState) {
     super(props);
+    sp.setup({ spfxContext: this.props.context });
     this.state = ({ startDate: new Date(), endDate: null, key: 'selection' })
+    this.getValuesFromSP();
   }
-  
+
+  private async getValuesFromSP() {
+    const item: any = await sp.web.lists.getByTitle("DateRangeList").items.getById(1).get();
+    this.setState({ endDate: item.DateFrom, startDate: item.DateTo })
+  }
+
   public render(): React.ReactElement<ISpfxReactDaterangepickerProps> {
     let state = [{ startDate: this.state.startDate, endDate: this.state.endDate, key: this.state.key }];
     return (
@@ -28,6 +35,7 @@ export default class SpfxReactDaterangepicker extends React.Component<ISpfxReact
           moveRangeOnFirstSelection={false}
           ranges={state}
         />
+        <br />
         <PrimaryButton text="Save" onClick={this._SaveIntoSP} />
       </div>
     );
@@ -38,7 +46,7 @@ export default class SpfxReactDaterangepicker extends React.Component<ISpfxReact
     let list = sp.web.lists.getByTitle("DateRangeList");
     const i = await list.items.getById(1).update({
       DateFrom: this.state.startDate,
-      DateTo: this.state.startDate
+      DateTo: this.state.endDate
     });
 
   }
