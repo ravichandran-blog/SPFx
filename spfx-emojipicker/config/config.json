@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "spfx-emojipicker-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/spfxEmojipicker/SpfxEmojipickerWebPart.js",
+          "manifest": "./src/webparts/spfxEmojipicker/SpfxEmojipickerWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "SpfxEmojipickerWebPartStrings": "lib/webparts/spfxEmojipicker/loc/{locale}.js"
+  }
+}
