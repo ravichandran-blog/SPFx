@@ -23,8 +23,10 @@
     "@types/react-dom": "16.8.3",
     "@types/webpack-env": "1.13.1",
     "@uiw/react-codemirror": "^2.2.1",
+    "ace-builds": "^1.4.11",
     "office-ui-fabric-react": "6.189.2",
     "react": "16.8.5",
+    "react-ace": "^9.0.0",
     "react-coder": "^1.0.4",
     "react-dom": "16.8.5"
   },
