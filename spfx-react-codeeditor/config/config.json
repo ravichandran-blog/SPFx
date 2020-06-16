@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "spfx-react-codeeditor-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/spfxReactCodeeditor/SpfxReactCodeeditorWebPart.js",
+          "manifest": "./src/webparts/spfxReactCodeeditor/SpfxReactCodeeditorWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "SpfxReactCodeeditorWebPartStrings": "lib/webparts/spfxReactCodeeditor/loc/{locale}.js"
+  }
+}
