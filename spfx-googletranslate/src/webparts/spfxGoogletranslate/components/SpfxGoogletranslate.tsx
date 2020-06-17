@@ -223,7 +223,7 @@ export default class SpfxGoogletranslate extends React.Component<ISpfxGoogletran
   }
 
   private async _translate() {
-    const result = await translate(this.state.userinput, { to: this.state.toLanguage, engine: 'google', key: 'AIzaSyCM_wBhu6T_fBU0f6vfi5Q9U_1ARuaN-oQ' });
+    const result = await translate(this.state.userinput, { to: this.state.toLanguage, engine: 'google', key: 'YOUR-KEY-HERE' });
     this.setState({ content: result })
   }
 
@@ -232,12 +232,12 @@ export default class SpfxGoogletranslate extends React.Component<ISpfxGoogletran
       <div className={styles.spfxGoogletranslate}>
         <Stack horizontal tokens={stackTokens} styles={stackStyles}>
           <Stack {...columnProps}>
-            <TextField label="Original" multiline autoAdjustHeight onChanged={(newtext) => { this.setState({ userinput: newtext }); this._translate() }} />
+            <TextField label="English" multiline autoAdjustHeight onChanged={(newtext) => { this.setState({ userinput: newtext }); this._translate() }} />
           </Stack>
           <Stack {...smallcolumnProps}>
             <Dropdown
               placeholder="Select a language"
-              label="Languages"
+              label="Select Language"
               options={languages}
               onChanged={(value) => { this.setState({ toLanguage: value.key.toString() }); this._translate() }}
             />
