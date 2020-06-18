@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "spfx-react-richtext-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/spfxReactRichtext/SpfxReactRichtextWebPart.js",
+          "manifest": "./src/webparts/spfxReactRichtext/SpfxReactRichtextWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "SpfxReactRichtextWebPartStrings": "lib/webparts/spfxReactRichtext/loc/{locale}.js"
+  }
+}
