@@ -1,1 +1,0 @@
-{"version":3,"file":"ISimpleListOperationsState.d.ts","sourceRoot":"","sources":["../../../../src/webparts/simpleListOperations/components/ISimpleListOperationsState.ts"],"names":[],"mappings":"AAAA,MAAM,WAAW,0BAA0B;IACzC,OAAO,EAAE,MAAM,CAAC;IAChB,UAAU,EAAC,SAAS,EAAE,CAAC;CACxB;AAED,MAAM,WAAW,SAAS;IACxB,EAAE,EAAE,MAAM,CAAC;IACX,KAAK,EAAE,MAAM,CAAC;CACf"}
