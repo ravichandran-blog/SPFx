@@ -6,7 +6,10 @@ import {
   PropertyPaneTextField
 } from '@microsoft/sp-property-pane';
 import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
-
+import { sp } from "@pnp/sp";
+import "@pnp/sp/webs";
+import "@pnp/sp/lists";
+import "@pnp/sp/items";
 import * as strings from 'SpfxPnpRichtextWebPartStrings';
 import SpfxPnpRichtext from './components/SpfxPnpRichtext';
 import { ISpfxPnpRichtextProps } from './components/ISpfxPnpRichtextProps';
@@ -15,14 +18,21 @@ export interface ISpfxPnpRichtextWebPartProps {
   description: string;
 }
 
-export default class SpfxPnpRichtextWebPart extends BaseClientSideWebPart <ISpfxPnpRichtextWebPartProps> {
-
-  public render(): void {
+export default class SpfxPnpRichtextWebPart extends BaseClientSideWebPart<ISpfxPnpRichtextWebPartProps> {
+  protected onInit() {
+    sp.setup({
+      spfxContext: this.context
+    });
+    return Promise.resolve<void>();
+  }
+  public async render() {
+    const item: any = await sp.web.lists.getByTitle("Teams").items.getById(1).get();
     const element: React.ReactElement<ISpfxPnpRichtextProps> = React.createElement(
       SpfxPnpRichtext,
       {
         description: this.properties.description,
-        context:this.context
+        context: this.context,
+        richtext: item.Description
       }
     );
 
