@@ -17,20 +17,14 @@ export default class SpfxPnpRichtext extends React.Component<ISpfxPnpRichtextPro
       spfxContext: this.props.context
     });
     this.state = { SuccessMessage: '', description: '' };
-    this._getDescription();
   }
 
-  @autobind
-  private async _getDescription() {
-    const item: any = await sp.web.lists.getByTitle("Teams").items.getById(1).get();
-    this.setState({ description: item.Description });
-  }
 
   public render(): React.ReactElement<ISpfxPnpRichtextProps> {
     let tamil = (this.state.description === '') ? 'Dummy' : this.state.description;
     return (
       <div className={styles.spfxPnpRichtext}>
-        <RichText isEditMode={true} value={this.state.description} onChange={this._onTextChange} />
+        <RichText isEditMode={true} value={this.props.richtext} onChange={this._onTextChange} />
         <br></br>
         <button className={styles.button} onClick={this._updateDescription}>Save</button>
         <br></br>

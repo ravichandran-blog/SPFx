@@ -1,4 +1,5 @@
 export interface ISpfxPnpRichtextProps {
   description: string;
-  context:any|null;
+  context: any | null;
+  richtext: string;
 }
