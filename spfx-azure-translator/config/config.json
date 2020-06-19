@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "spfx-azure-translator-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/spfxAzureTranslator/SpfxAzureTranslatorWebPart.js",
+          "manifest": "./src/webparts/spfxAzureTranslator/SpfxAzureTranslatorWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "SpfxAzureTranslatorWebPartStrings": "lib/webparts/spfxAzureTranslator/loc/{locale}.js"
+  }
+}
