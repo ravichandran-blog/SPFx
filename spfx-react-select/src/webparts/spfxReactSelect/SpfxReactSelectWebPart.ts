@@ -15,16 +15,16 @@ export interface ISpfxReactSelectWebPartProps {
   description: string;
 }
 
-export default class SpfxReactSelectWebPart extends BaseClientSideWebPart <ISpfxReactSelectWebPartProps> {
+export default class SpfxReactSelectWebPart extends BaseClientSideWebPart<ISpfxReactSelectWebPartProps> {
 
   public render(): void {
     const element: React.ReactElement<ISpfxReactSelectProps> = React.createElement(
       SpfxReactSelect,
       {
-        description: this.properties.description
+        description: this.properties.description,
+        context: this.context
       }
     );
-
     ReactDom.render(element, this.domElement);
   }
 
