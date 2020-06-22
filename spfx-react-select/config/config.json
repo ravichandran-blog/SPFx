@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "spfx-react-select-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/spfxReactSelect/SpfxReactSelectWebPart.js",
+          "manifest": "./src/webparts/spfxReactSelect/SpfxReactSelectWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "SpfxReactSelectWebPartStrings": "lib/webparts/spfxReactSelect/loc/{locale}.js"
+  }
+}
