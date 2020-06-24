@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "spfx-pnp-getset-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/spfxPnpGetset/SpfxPnpGetsetWebPart.js",
+          "manifest": "./src/webparts/spfxPnpGetset/SpfxPnpGetsetWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "SpfxPnpGetsetWebPartStrings": "lib/webparts/spfxPnpGetset/loc/{locale}.js"
+  }
+}
