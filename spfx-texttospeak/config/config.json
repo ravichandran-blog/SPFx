@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "spfx-texttospeak-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/spfxTexttospeak/SpfxTexttospeakWebPart.js",
+          "manifest": "./src/webparts/spfxTexttospeak/SpfxTexttospeakWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "SpfxTexttospeakWebPartStrings": "lib/webparts/spfxTexttospeak/loc/{locale}.js"
+  }
+}
