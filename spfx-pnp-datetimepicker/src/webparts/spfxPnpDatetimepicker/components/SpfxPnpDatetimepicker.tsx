@@ -16,15 +16,15 @@ export default class SpfxPnpDatetimepicker extends React.Component<ISpfxPnpDatet
       spfxContext: this.props.context
     });
     this.state = {
-      StartDateTime: new Date(),
+      StartDateTime: null,
       DueDate: new Date(),
       SuccessMessage: ''
     }
-    this._getFiles();
+    this._getValues();
   }
 
   @autobind
-  private async _getFiles() {
+  private async _getValues() {
     const item: any = await sp.web.lists.getByTitle("ActionInfo").items.getById(1).get();
     this.setState({
       StartDateTime: new Date(item.StartDateTime),
@@ -35,20 +35,24 @@ export default class SpfxPnpDatetimepicker extends React.Component<ISpfxPnpDatet
   public render(): React.ReactElement<ISpfxPnpDatetimepickerProps> {
     return (
       <div className={styles.spfxPnpDatetimepicker}>
-        <DateTimePicker label="Start date and time"
-          dateConvention={DateConvention.DateTime}
-          timeConvention={TimeConvention.Hours12}
-          timeDisplayControlType={TimeDisplayControlType.Dropdown}
-          formatDate={(date: Date) => date.toLocaleDateString()}
-          showLabels={false}
-          value={this.state.StartDateTime}
-          onChange={(date: Date) => this.setState({ StartDateTime: date })}
-        />
-        <label className={styles.label}>Selected value: {this.state.StartDateTime.toString()}</label>
+        {this.state.StartDateTime ?
+          <div>
+            <DateTimePicker label="Start date and time"
+              dateConvention={DateConvention.DateTime}
+              timeConvention={TimeConvention.Hours12}
+              timeDisplayControlType={TimeDisplayControlType.Dropdown}
+              formatDate={(date: Date) => date.toLocaleDateString()}
+              showLabels={false}
+              value={this.state.StartDateTime}
+              onChange={(date: Date) => this.setState({ StartDateTime: date })}
+            />
+            <label className={styles.label}>Selected value: {this.state.StartDateTime.toString()}</label>
+          </div>
+          : null
+        }
+
         <DateTimePicker label="Due date"
           dateConvention={DateConvention.Date}
-          timeConvention={TimeConvention.Hours12}
-          timeDisplayControlType={TimeDisplayControlType.Dropdown}
           formatDate={(date: Date) => date.toLocaleDateString()}
           showLabels={false}
           value={this.state.DueDate}
