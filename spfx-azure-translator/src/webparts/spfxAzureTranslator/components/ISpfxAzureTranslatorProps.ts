@@ -1,3 +1,4 @@
 export interface ISpfxAzureTranslatorProps {
-  description: string;
+  AzureSubscriptionKey: string;
+  ServiceName: string;
 }

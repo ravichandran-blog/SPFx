@@ -12,16 +12,18 @@ import SpfxAzureTranslator from './components/SpfxAzureTranslator';
 import { ISpfxAzureTranslatorProps } from './components/ISpfxAzureTranslatorProps';
 
 export interface ISpfxAzureTranslatorWebPartProps {
-  description: string;
+  AzureSubscriptionKey: string;
+  ServiceName: string;
 }
 
-export default class SpfxAzureTranslatorWebPart extends BaseClientSideWebPart <ISpfxAzureTranslatorWebPartProps> {
+export default class SpfxAzureTranslatorWebPart extends BaseClientSideWebPart<ISpfxAzureTranslatorWebPartProps> {
 
   public render(): void {
     const element: React.ReactElement<ISpfxAzureTranslatorProps> = React.createElement(
       SpfxAzureTranslator,
       {
-        description: this.properties.description
+        AzureSubscriptionKey: this.properties.AzureSubscriptionKey,
+        ServiceName: this.properties.ServiceName
       }
     );
 
@@ -47,8 +49,11 @@ export default class SpfxAzureTranslatorWebPart extends BaseClientSideWebPart <I
             {
               groupName: strings.BasicGroupName,
               groupFields: [
-                PropertyPaneTextField('description', {
-                  label: strings.DescriptionFieldLabel
+                PropertyPaneTextField('AzureSubscriptionKey', {
+                  label: "Azure Subscription Key"
+                }),
+                PropertyPaneTextField('ServiceName', {
+                  label: "Service Name"
                 })
               ]
             }

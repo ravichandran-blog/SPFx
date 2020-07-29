@@ -46,17 +46,17 @@ export default class SpfxAzureTranslator extends React.Component<ISpfxAzureTrans
 
   private async _translate() {
     $.post({
-      url: 'https://ravichandran.cognitiveservices.azure.com/sts/v1.0/issueToken',
+      url: 'https://' + this.props.ServiceName + '.cognitiveservices.azure.com/sts/v1.0/issueToken',
       headers: {
-        'Ocp-Apim-Subscription-Key': '03e88fd1d1cc403654861c891001e457',
-        'Authorization': 'ravichandran.cognitiveservices.azure.com'
+        'Ocp-Apim-Subscription-Key': this.props.AzureSubscriptionKey,
+        'Authorization': this.props.ServiceName + '.cognitiveservices.azure.com'
       }
     })
       .done((tocken: any): void => {
         $.post({
           url: 'https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=' + this.state.toLanguage,
           headers: {
-            'Ocp-Apim-Subscription-Key': '03e88fd1d1cc403654861c891001e457',
+            'Ocp-Apim-Subscription-Key': this.props.AzureSubscriptionKey,
             'Authorization': 'Bearer ' + tocken,
             'Content-Type': 'application/json'
           },

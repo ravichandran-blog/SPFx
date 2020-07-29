@@ -1,7 +1,7 @@
 declare interface ISpfxAzureTranslatorWebPartStrings {
   PropertyPaneDescription: string;
   BasicGroupName: string;
-  DescriptionFieldLabel: string;
+  AzureSubscriptionKeyLabel: string;
 }
 
 declare module 'SpfxAzureTranslatorWebPartStrings' {
