@@ -7,35 +7,6 @@ import "@pnp/sp/lists";
 import "@pnp/sp/items";
 import 'antd/dist/antd.css';
 
-// const data = [
-//   {
-//     key: '1',
-//     name: 'John Brown',
-//     age: 32,
-//     address: 'New York No. 1 Lake Park',
-//   },
-//   {
-//     key: '2',
-//     name: 'Jim Green',
-//     age: 42,
-//     address: 'London No. 1 Lake Park',
-//   },
-//   {
-//     key: '3',
-//     name: 'Joe Black',
-//     age: 32,
-//     address: 'Sidney No. 1 Lake Park',
-//   },
-//   {
-//     key: '4',
-//     name: 'Jim Red',
-//     age: 32,
-//     address: 'London No. 2 Lake Park',
-//   },
-// ];
-
-
-
 export default class SpfxAntTable extends React.Component<ISpfxAntTableProps, {}> {
 
   constructor(props: ISpfxAntTableProps) {
@@ -45,7 +16,7 @@ export default class SpfxAntTable extends React.Component<ISpfxAntTableProps, {}
   }
 
   getvalues = async () => {
-    const allItems: any[] = await sp.web.lists.getByTitle("Departments").items.getAll();
+    const allItems: any[] = await sp.web.lists.getByTitle("Departments").items.get();
     this.setState({ data: allItems })
   }
 
@@ -70,18 +41,27 @@ export default class SpfxAntTable extends React.Component<ISpfxAntTableProps, {}
     let { sortedInfo, filteredInfo } = this.state;
     sortedInfo = sortedInfo || {};
     filteredInfo = filteredInfo || {};
+
+    let titlearr: any[] = [];
+    let numberarr: any[] = [];
+
+    this.state.data.forEach(function (dept, i) {
+      titlearr.push({ text: dept.Title, value: dept.Title });
+      numberarr.push({ text: dept.NumberOfPeople, value: dept.NumberOfPeople });
+    });
+
+    titlearr = this.unique(titlearr, "text")
+    numberarr = this.unique(numberarr, "text")
+
     const columns = [
       {
         title: 'Title',
         dataIndex: 'Title',
         key: 'Title',
-        filters: [
-          { text: 'Joe', value: 'Joe' },
-          { text: 'Jim', value: 'Jim' },
-        ],
-        filteredValue: filteredInfo.name || null,
-        onFilter: (value, record) => record.name.includes(value),
-        sorter: (a, b) => a.name.length - b.name.length,
+        filters: titlearr,
+        filteredValue: filteredInfo.Title || null,
+        onFilter: (value, record) => record.Title.includes(value),
+        sorter: (a, b) => a.Title.length - b.Title.length,
         sortOrder: sortedInfo.columnKey === 'Title' && sortedInfo.order,
         ellipsis: true,
       },
@@ -89,6 +69,8 @@ export default class SpfxAntTable extends React.Component<ISpfxAntTableProps, {}
         title: 'Number Of People',
         dataIndex: 'NumberOfPeople',
         key: 'NumberOfPeople',
+        filteredValue: filteredInfo.NumberOfPeople || null,
+        filters: numberarr,
         sorter: (a, b) => a.NumberOfPeople - b.NumberOfPeople,
         sortOrder: sortedInfo.columnKey === 'NumberOfPeople' && sortedInfo.order,
         ellipsis: true,
@@ -97,22 +79,21 @@ export default class SpfxAntTable extends React.Component<ISpfxAntTableProps, {}
         title: 'Description',
         dataIndex: 'Description',
         key: 'Description',
-        filters: [
-          { text: 'London', value: 'London' },
-          { text: 'New York', value: 'New York' },
-        ],
-        filteredValue: filteredInfo.address || null,
-        onFilter: (value, record) => record.address.includes(value),
-        sorter: (a, b) => a.address.length - b.address.length,
+        
+        onFilter: (value, record) => record.Description.includes(value),
+        sorter: (a, b) => a.Description.length - b.Description.length,
         sortOrder: sortedInfo.columnKey === 'Description' && sortedInfo.order,
         ellipsis: true,
       },
     ];
     return (
-      <>
-        <Button onClick={this.clearFilters}>Clear filters</Button>
+      <div style={{ padding: '20px' }}>
+        <Button onClick={this.clearFilters} style={{margin:'0px 0px 20px 0px'}}>Clear filters</Button>
         <Table columns={columns} dataSource={this.state.data} onChange={this.handleChange} />
-      </>
+      </div>
     );
+  }
+  private unique(array, propertyName) {
+    return array.filter((e, i) => array.findIndex(a => a[propertyName] === e[propertyName]) === i);
   }
 }
