@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "spfx-ant-table-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/spfxAntTable/SpfxAntTableWebPart.js",
+          "manifest": "./src/webparts/spfxAntTable/SpfxAntTableWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "SpfxAntTableWebPartStrings": "lib/webparts/spfxAntTable/loc/{locale}.js"
+  }
+}
