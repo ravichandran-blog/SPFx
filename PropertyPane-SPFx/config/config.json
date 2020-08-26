@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "property-pane-sp-fx-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/propertyPaneSpFx/PropertyPaneSpFxWebPart.js",
+          "manifest": "./src/webparts/propertyPaneSpFx/PropertyPaneSpFxWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "PropertyPaneSpFxWebPartStrings": "lib/webparts/propertyPaneSpFx/loc/{locale}.js"
+  }
+}

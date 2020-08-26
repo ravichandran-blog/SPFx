@@ -1,0 +1,21 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "feba037b-ae91-4404-9973-be1a379f8415",
+  "alias": "PropertyPaneSpFxWebPart",
+  "componentType": "WebPart",
+  "version": "*",
+  "manifestVersion": 2,
+  "requiresCustomScript": false,
+  "supportedHosts": ["SharePointWebPart"],
+
+  "preconfiguredEntries": [{
+    "groupId": "5c03119e-3074-46fd-976b-c60198311f70", 
+    "group": { "default": "Other" },
+    "title": { "default": "PropertyPane-SPFx" },
+    "description": { "default": "PropertyPane-SPFx description" },
+    "officeFabricIconFontName": "Page",
+    "properties": {
+      "selectedusers": "[]"
+    }
+  }]
+}
