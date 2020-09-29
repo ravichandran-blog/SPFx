@@ -3,9 +3,6 @@ import styles from './SpfxFluentuiNav.module.scss';
 import { ISpfxFluentuiNavProps } from './ISpfxFluentuiNavProps';
 import { ISpfxFluentuiNavState } from './ISpfxFluentuiNavState';
 import { Nav, INavLink, INavStyles, INavLinkGroup } from 'office-ui-fabric-react/lib/Nav';
-
-import { autobind } from 'office-ui-fabric-react/lib/Utilities';
-
 import { sp } from "@pnp/sp";
 import "@pnp/sp/webs";
 import "@pnp/sp/lists";
@@ -21,69 +18,6 @@ const navStyles: Partial<INavStyles> = {
   },
 };
 
-// const navLinkGroups: INavLinkGroup[] = [
-//   {
-//     links: [
-//       {
-//         name: 'Home',
-//         url: 'http://example.com',
-//         expandAriaLabel: 'Expand Home section',
-//         collapseAriaLabel: 'Collapse Home section',
-//         links: [
-//           {
-//             name: 'Activity',
-//             url: 'http://msn.com',
-//             key: 'key1',
-//             target: '_blank',
-//           },
-//           {
-//             name: 'MSN',
-//             url: 'http://msn.com',
-//             disabled: true,
-//             key: 'key2',
-//             target: '_blank',
-//           },
-//         ],
-//         isExpanded: true,
-//       },
-//       {
-//         name: 'Documents',
-//         url: 'http://example.com',
-//         key: 'key3',
-//         isExpanded: true,
-//         target: '_blank',
-//       },
-//       {
-//         name: 'Pages',
-//         url: 'http://msn.com',
-//         key: 'key4',
-//         target: '_blank',
-//       },
-//       {
-//         name: 'Notebook',
-//         url: 'http://msn.com',
-//         key: 'key5',
-//         disabled: true,
-//       },
-//       {
-//         name: 'Communication and Media',
-//         url: 'http://msn.com',
-//         key: 'key6',
-//         target: '_blank',
-//       },
-//       {
-//         name: 'News',
-//         url: 'http://cnn.com',
-//         icon: 'News',
-//         key: 'key7',
-//         target: '_blank',
-//       },
-//     ],
-//   },
-// ];
-
-
-
 export default class SpfxFluentuiNav extends React.Component<ISpfxFluentuiNavProps, ISpfxFluentuiNavState> {
   constructor(props: ISpfxFluentuiNavProps) {
     super(props);
@@ -93,47 +27,34 @@ export default class SpfxFluentuiNav extends React.Component<ISpfxFluentuiNavPro
     this.state = {
       links: []
     }
-    //this._getLinks();
+    this._getLinks();
   }
 
   private async _getLinks() {
     const allItems: any[] = await sp.web.lists.getByTitle("TreeLinks").items.getAll();
-    var treearr: INavLinkGroup[] = [];
+    const linkgroupcol: INavLinkGroup[] = [{ links: [] }];
+    let linkcol: INavLink[] = linkgroupcol[0].links;
     allItems.forEach(function (v, i) {
-
       if (v["ParentId"] == null) {
-        const tree: INavLink = {
-          key: v.Id,
-          label: v["Title"],
-          data: v["Link"],
-          children: []
-        }
-        treearr.push(tree);
+        linkcol.push({ name: v["Title"], url: v["Link"], links: [], key: v.Id + '', isExpanded: true, target: '_blank' })
       }
       else {
-        const tree: INavLink = {
-          key: v.Id,
-          label: v["Title"],
-          data: v["Link"]
-        }
-        var treecol: Array<INavLink> = treearr.filter(function (value) { return value.key == v["ParentId"] })
+        const link: INavLink = { key: v.Id + '', name: v["Title"], url: v["Link"], links: [], target: '_blank' }
+        var treecol: INavLink[] = linkcol.filter(function (value) { return value.key == v["ParentId"] })
         if (treecol.length != 0) {
-          treecol[0].children.push(tree);
+          treecol[0].links.push(link);
         }
       }
-
-      console.log(v);
     });
-    console.log(treearr);
-    this.setState({ links: treearr });
+    console.log(linkgroupcol);
+    this.setState({ links: linkgroupcol });
   }
-
 
   public render(): React.ReactElement<ISpfxFluentuiNavProps> {
     return (
       <div className={styles.spfxFluentuiNav}>
         <Nav onLinkClick={this._onLinkClick}
-          selectedKey="key3"
+          selectedKey="5"
           ariaLabel="Nav basic example"
           styles={navStyles}
           groups={this.state.links} />
@@ -142,8 +63,8 @@ export default class SpfxFluentuiNav extends React.Component<ISpfxFluentuiNavPro
   }
 
   private _onLinkClick(ev?: React.MouseEvent<HTMLElement>, item?: INavLink) {
-    if (item && item.name === 'News') {
-      alert('News link clicked');
+    if (item && item.name === 'SharePoint') {
+      console.log('SharePoint link clicked');
     }
   }
 }

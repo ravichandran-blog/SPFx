@@ -25,7 +25,6 @@ export default class SpfxFluentuiNavWebPart extends BaseClientSideWebPart <ISpfx
         context:this.context
       }
     );
-
     ReactDom.render(element, this.domElement);
   }
 
