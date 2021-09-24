@@ -1,0 +1,19 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "spfx-pnp-dynamicform-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/spfxPnpDynamicform/SpfxPnpDynamicformWebPart.js",
+          "manifest": "./src/webparts/spfxPnpDynamicform/SpfxPnpDynamicformWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "SpfxPnpDynamicformWebPartStrings": "lib/webparts/spfxPnpDynamicform/loc/{locale}.js",
+    "ControlStrings": "node_modules/@pnp/spfx-controls-react/lib/loc/{locale}.js"
+  }
+}
