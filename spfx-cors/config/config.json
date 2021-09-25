@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "spfx-cors-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/spfxCors/SpfxCorsWebPart.js",
+          "manifest": "./src/webparts/spfxCors/SpfxCorsWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "SpfxCorsWebPartStrings": "lib/webparts/spfxCors/loc/{locale}.js"
+  }
+}
