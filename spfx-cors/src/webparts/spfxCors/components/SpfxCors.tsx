@@ -11,8 +11,8 @@ export default class SpfxCors extends React.Component<ISpfxCorsProps, {}> {
   }
 
   private async _getFeeds() {
-    // let response = await this.props.context.httpClient.get("https://kljdlkf87.azurewebsites.net/api/HttpTrigger1?code=XgdKg2k5zMRaOumro5Gv16uz81I1fp0yZyyUpiPES7cYHtskjgavMQ==", HttpClient.configurations.v1);
-    let response = await this.props.context.httpClient.get("https://api.darksky.net/forecast/febb2871126cd24613f32a79c32d4158/1.222,2.333", HttpClient.configurations.v1);
+    let response = await this.props.context.httpClient.get("https://kljdlkf87.azurewebsites.net/api/HttpTrigger1?code=XgdKg2k5zMRaOumro5Gv16uz81I1fp0yZyyUpiPES7cYHtskjgavMQ==", HttpClient.configurations.v1);
+    //let response = await this.props.context.httpClient.get("https://api.darksky.net/forecast/febb2871126cd24613f32a79c32d4158/1.222,2.333", HttpClient.configurations.v1);
     console.log(response);
     console.log("REST API response received.");
     let tasks = await response.json();
