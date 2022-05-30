@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "spfx-pnp-treeview-client-side-solution",
+    "id": "764a5c51-5df3-47bd-84db-2a8df10cd5cb",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.14.0"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "spfx-pnp-treeview description"
+      },
+      "longDescription": {
+        "default": "spfx-pnp-treeview description"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "spfx-pnp-treeview Feature",
+        "description": "The feature that activates elements of the spfx-pnp-treeview solution.",
+        "id": "783611d3-4cef-4d0e-93d6-8ae9a41ff137",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/spfx-pnp-treeview.sppkg"
+  }
+}
